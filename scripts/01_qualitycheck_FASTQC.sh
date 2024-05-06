@@ -11,16 +11,16 @@
 module load bioinfo-tools
 module load FastQC
 
-output=/home/bigdat24/Gendata24/output/fastqc/
-input=/home/bigdat24/Gendata24/raw_data/
+output=/home/bigdat24/Gendata24/output/fastqc
+input=/home/bigdat24/Gendata24/raw_data
 
 # RNA 
-rna_in=$input/RNA
+rna_in=$input/RNA_untrimmed
 
 # DNA
-dna_in=$input/DNA
+dna_in=$input/DNA_trimmed
 
 mkdir -p $output/DNA $output/RNA
 
-fastqc -o $output/RNA -t 2 rna_in/*
-fastqc -o %output/DNA -t 2 dna_in/*
+fastqc -o $output/RNA -t 2 $rna_in/*
+fastqc -o $output/DNA -t 2 $dna_in/*
